@@ -1,0 +1,25 @@
+{
+      "invalidPin":{
+		"pin": "2123"      },
+      
+      "validPin":{
+        "pin": "6821"
+      
+      },
+      
+      "invalidSecretKey":{
+       
+          "key": "P6W9G7"
+          
+      },
+          
+       "validSecretKey":{
+       
+          "key" : "EA6HR6"
+       
+      }
+  }
+      
+
+
+

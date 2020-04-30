@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="55058" started-at="2020-04-30T20:50:12 CEST" finished-at="2020-04-30T20:51:07 CEST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="55058" started-at="2020-04-30T20:50:12 CEST" finished-at="2020-04-30T20:51:07 CEST">
+      <class name="se.leeroyMpos.qa.tests.LoginTest">
+        <test-method status="PASS" signature="startup(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="startup" is-config="true" duration-ms="5264" started-at="2020-04-30T20:50:12 CEST" finished-at="2020-04-30T20:50:17 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[iOS]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[13.4]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[iPad pro]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="beforeMethod" is-config="true" duration-ms="114" started-at="2020-04-30T20:50:17 CEST" finished-at="2020-04-30T20:50:17 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void se.leeroyMpos.qa.tests.LoginTest.invalidPinNumber()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="invalidPinNumber()[pri:1, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="invalidPinNumber" duration-ms="7485" started-at="2020-04-30T20:50:17 CEST" finished-at="2020-04-30T20:50:24 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidPinNumber -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="afterMethod" is-config="true" duration-ms="7" started-at="2020-04-30T20:50:24 CEST" finished-at="2020-04-30T20:50:24 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="beforeMethod" is-config="true" duration-ms="7" started-at="2020-04-30T20:50:24 CEST" finished-at="2020-04-30T20:50:24 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void se.leeroyMpos.qa.tests.LoginTest.validPinNumber()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="validPinNumber()[pri:2, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="validPinNumber" duration-ms="13901" started-at="2020-04-30T20:50:24 CEST" finished-at="2020-04-30T20:50:38 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validPinNumber -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="afterMethod" is-config="true" duration-ms="7" started-at="2020-04-30T20:50:38 CEST" finished-at="2020-04-30T20:50:38 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="beforeMethod" is-config="true" duration-ms="40" started-at="2020-04-30T20:50:38 CEST" finished-at="2020-04-30T20:50:38 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void se.leeroyMpos.qa.tests.LoginTest.addToCart()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="addToCart()[pri:3, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="addToCart" duration-ms="27013" started-at="2020-04-30T20:50:38 CEST" finished-at="2020-04-30T20:51:05 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addToCart -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="afterMethod" is-config="true" duration-ms="45" started-at="2020-04-30T20:51:05 CEST" finished-at="2020-04-30T20:51:05 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:se.leeroyMpos.qa.tests.LoginTest@704a52ec]" name="afterClass" is-config="true" duration-ms="1150" started-at="2020-04-30T20:51:05 CEST" finished-at="2020-04-30T20:51:07 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- se.leeroyMpos.qa.tests.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Suite -->
+</testng-results>

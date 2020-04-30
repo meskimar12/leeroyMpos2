@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+	<resources>
+	<!-- Error Text -->
+	   <string name="err_incorrect_pin">Incorrect Pin</string>
+	   <string name="device_name">SG 1</string>
+	   <string name="err_registration">We are unable to process your request, please try after sometime.</string>
+	   <string name="succes_message">Registration completed!</string>
+	   <string name="select_ printer">Select printer</string>
+	   <string name="item_name">Bananpaj</string>
+	   <string name="unlock">Log in</string>
+	   <string name="ip_check">IP address of your device</string>
+	   
+	</resources>
