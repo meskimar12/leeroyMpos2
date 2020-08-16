@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="platformVersion" value="13.4"/>
+  <parameter name="platformVersion" value="13.5"/>
   <parameter name="deviceName" value="iPad pro"/>
   <parameter name="applicationName" value="iOS"/>
   <listeners>
     <listener class-name="se.qa.listeners.TestListener"/>
   </listeners>
-  <test thread-count="5" name="Default test(failed)">
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="se.leeroyMpos.qa.tests.RegisterTest">
+      <class name="se.leeroyMpos.qa.tests.EditingProductsTest">
         <methods>
+          <include name="afterMethod"/>
+          <include name="discountIsDisplayed"/>
           <include name="startup"/>
           <include name="beforeMethod"/>
-          <include name="afterClass"/>
-          <include name="validSecretKey"/>
-          <include name="CompleteRegistration"/>
-          <include name="afterMethod"/>
         </methods>
-      </class> <!-- se.leeroyMpos.qa.tests.RegisterTest -->
+      </class> <!-- se.leeroyMpos.qa.tests.EditingProductsTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

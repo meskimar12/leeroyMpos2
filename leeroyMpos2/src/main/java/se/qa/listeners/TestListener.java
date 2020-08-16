@@ -7,8 +7,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListener implements ITestListener {
+import se.qa.utils.JiraPolicy;
 
+public class TestListener implements ITestListener {
+	
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -31,16 +33,26 @@ public class TestListener implements ITestListener {
 			
 			result.getMethod().getConstructorOrMethod().getMethod().getAnnotations();
 			
+		//	JiraPolicy jirapolicy =result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(JiraPolicy.class);
+		//	boolean isAvailable = jirapolicy.logInTicketReady();
+			
+		//	if(isAvailable) {
+		//		System.out.println("ticket is ready" + isAvailable);
+				
+				
+		//	}
+			
+			
 		}
 		
 	}
+		
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -58,5 +70,7 @@ public class TestListener implements ITestListener {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }

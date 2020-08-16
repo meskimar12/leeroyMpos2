@@ -14,6 +14,7 @@ public class LoginScreen {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Unlock\"]") private MobileElement unlockBtn;
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Incorrect Pin\"]") private MobileElement errTxt;
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Ok\"]") private MobileElement okBtn;
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Log in\"]") private MobileElement loginScreen;
 	
 	BaseTest base;
 	
@@ -57,6 +58,18 @@ public class LoginScreen {
 	    	   
 	    	}
   }
+       
+       public String getName() {
+    	   return base.getAttribute(loginScreen,"name");
+       }
+       
+       public MenuScreen login( String pin) {
+    	   enterPin(pin);
+    	   return tapUnlokBtn();
+    	   
+       }
+       
+   
        }
 	  
 		

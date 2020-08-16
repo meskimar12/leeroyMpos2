@@ -12,7 +12,7 @@ public class AllDoneScreen {
 	
 	
 @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Log in\"]") private MobileElement loginBtn;
-@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Log in\"]") private MobileElement allDaoneScreen;
+@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"All done!\"]") private MobileElement allDaoneScreen;
 
 	
 	BaseTest base;
@@ -25,16 +25,18 @@ public class AllDoneScreen {
 
 
 	
-	 
-	public String getName() {
-		
-		return base.getAttribute(allDaoneScreen,"name");
-	}
+
 		
 		public LoginScreen tapLoginBtn() {
 			base.click(loginBtn);
 			
 			return  new LoginScreen ();
+		}
+		
+		
+		public String getName() {
+			
+			return base.getAttribute(allDaoneScreen,"name");
 		}
 
 

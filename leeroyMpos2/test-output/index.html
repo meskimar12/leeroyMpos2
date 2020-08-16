@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>testng-customsuite.xml</span>
+                    <span>editingProducts.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.EditingProductsTest" hash-for-method="discountIsDisplayed">discountIsDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +116,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.LoginTest" hash-for-method="addToCart">addToCart</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.EditingProductsTest" hash-for-method="editingPrice">editingPrice</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.LoginTest" hash-for-method="invalidPinNumber">invalidPinNumber</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.LoginTest" hash-for-method="validPinNumber">validPinNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="se.leeroyMpos.qa.tests.EditingProductsTest" hash-for-method="editingQuanitity">editingQuanitity</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -127,31 +136,74 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">se.leeroyMpos.qa.tests.LoginTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">se.leeroyMpos.qa.tests.EditingProductsTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="addToCart">
-                  </a> <!-- addToCart -->
-                  <span class="method-name">addToCart</span>
+                  <a name="discountIsDisplayed">
+                  </a> <!-- discountIsDisplayed -->
+                  <span class="method-name">discountIsDisplayed</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({By.xpath: //XCUIElementTypeStaticText[@name=&quot;15% &quot;]})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+	at io.appium.java_client.ios.IOSElement$$EnhancerByCGLIB$$d311658.isDisplayed(&lt;generated&gt;)
+	at se.qa.main.EditingProduct.isDisplayed(EditingProduct.java:121)
+	at se.leeroyMpos.qa.tests.EditingProductsTest.discountIsDisplayed(EditingProductsTest.java:159)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@3e2943ab (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+	... 32 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: //XCUIElementTypeStaticText[@name=&quot;15% &quot;]})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;Anoops-MBP-2&apos;, ip: &apos;fdd8:9ec2:20c0:0:a54e:23c0:ce11:17c8%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.3&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: driver.version: IOSDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.findElement(IOSDriver.java:1)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 34 more
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">se.leeroyMpos.qa.tests.EditingProductsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="editingPrice">
+                  </a> <!-- editingPrice -->
+                  <span class="method-name">editingPrice</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="invalidPinNumber">
-                  </a> <!-- invalidPinNumber -->
-                  <span class="method-name">invalidPinNumber</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validPinNumber">
-                  </a> <!-- validPinNumber -->
-                  <span class="method-name">validPinNumber</span>
+                  <a name="editingQuanitity">
+                  </a> <!-- editingQuanitity -->
+                  <span class="method-name">editingQuanitity</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -159,24 +211,24 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/1y/4xz0btjx3fgg7m58rycvlgs40000gn/T/testng-eclipse--680177950/testng-customsuite.xml</span>
+            <span class="header-content">/Users/meskerem/git/leeroyMpos2/leeroyMpos2/editingProducts.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
-  &lt;parameter name=&quot;platformVersion&quot; value=&quot;13.4&quot;/&gt;
+  &lt;parameter name=&quot;platformVersion&quot; value=&quot;13.5&quot;/&gt;
   &lt;parameter name=&quot;deviceName&quot; value=&quot;iPad pro&quot;/&gt;
   &lt;parameter name=&quot;applicationName&quot; value=&quot;iOS&quot;/&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;se.qa.listeners.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;se.leeroyMpos.qa.tests.LoginTest&quot;/&gt;
+      &lt;class name=&quot;se.leeroyMpos.qa.tests.EditingProductsTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
+  &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -188,7 +240,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">Test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -216,22 +268,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'addToCart')
-data.setCell(0, 2, 'se.leeroyMpos.qa.tests.LoginTest')
-data.setCell(0, 3, 27013);
+data.setCell(0, 1, 'editingQuanitity')
+data.setCell(0, 2, 'se.leeroyMpos.qa.tests.EditingProductsTest')
+data.setCell(0, 3, 165448);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'validPinNumber')
-data.setCell(1, 2, 'se.leeroyMpos.qa.tests.LoginTest')
-data.setCell(1, 3, 13901);
+data.setCell(1, 1, 'editingPrice')
+data.setCell(1, 2, 'se.leeroyMpos.qa.tests.EditingProductsTest')
+data.setCell(1, 3, 90919);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'invalidPinNumber')
-data.setCell(2, 2, 'se.leeroyMpos.qa.tests.LoginTest')
-data.setCell(2, 3, 7485);
+data.setCell(2, 1, 'discountIsDisplayed')
+data.setCell(2, 2, 'se.leeroyMpos.qa.tests.EditingProductsTest')
+data.setCell(2, 3, 18440);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 48 seconds</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -257,51 +309,49 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">se.leeroyMpos.qa.tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">se.leeroyMpos.qa.tests.EditingProductsTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">startup(iOS, 13.4, iPad pro)</span>
+                <span class="method-name">startup(iOS, 13.5, iPad pro)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.LoginTest.invalidPinNumber())</span>
-                <span class="method-start">5270 ms</span>
+                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.EditingProductsTest.editingQuanitity() throws java.lang.Interrupt...)</span>
+                <span class="method-start">7251 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">invalidPinNumber</span>
-                <span class="method-start">5385 ms</span>
+                <span class="method-name">editingQuanitity</span>
+                <span class="method-start">7381 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">12872 ms</span>
+                <span class="method-start">172831 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.LoginTest.validPinNumber())</span>
-                <span class="method-start">12880 ms</span>
+                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.EditingProductsTest.editingPrice() throws java.lang.InterruptedEx...)</span>
+                <span class="method-start">172838 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validPinNumber</span>
-                <span class="method-start">12887 ms</span>
+                <span class="method-name">editingPrice</span>
+                <span class="method-start">172854 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">26789 ms</span>
+                <span class="method-start">263774 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.LoginTest.addToCart())</span>
-                <span class="method-start">26797 ms</span>
+                <span class="method-name">beforeMethod(public void se.leeroyMpos.qa.tests.EditingProductsTest.discountIsDisplayed() throws java.lang.Interr...)</span>
+                <span class="method-start">263780 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">addToCart</span>
-                <span class="method-start">26837 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">discountIsDisplayed</span>
+                <span class="method-start">263793 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">53850 ms</span>
+                <span class="method-start">282236 ms</span>
               </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">afterClass</span>
-                <span class="method-start">53895 ms</span>
-              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

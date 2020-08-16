@@ -8,8 +8,7 @@ import se.leeroyMpos.qa.BaseTest;
 
 public class SelectPrinterScreen {
 	
-	
-	//  all to be corrected 
+	 
 	
 			@iOSXCUITFindBy(accessibility = "Empty list") private MobileElement select;
 			@iOSXCUITFindBy(accessibility = "Ok") private MobileElement okBtn;
@@ -21,16 +20,17 @@ public class SelectPrinterScreen {
 	
    
 	
-	BaseTest base;
+	   BaseTest base;
 	
 	
 	
-	public SelectPrinterScreen() {
-		base = new BaseTest();
-		PageFactory.initElements(new AppiumFieldDecorator(base.getDriver()), this);
-	}
+			public SelectPrinterScreen() {
+				base = new BaseTest();
+				PageFactory.initElements(new AppiumFieldDecorator(base.getDriver()), this);
+			
+			}
 	
-	
+			
 	
 	/*	public void printer () {
 			
@@ -46,33 +46,33 @@ public class SelectPrinterScreen {
 			
 	        
 		}*/
-		public void tapBtn() {
+			public void tapBtn() {
+		
+				base.click(okBtn);
+				
+				
+			}
+			
+			public void select() {
+				base.click(select);
+				
+			}
+			
+			public IpScreen tapSkipBtn() {
+				base.click(skipBtn);
+				
+				return  new IpScreen();
+			}
 	
-			base.click(okBtn);
-			
-			
-		}
-		
-		public void select() {
-			base.click(select);
-			
-		}
-		
-		public IpScreen tapSkipBtn() {
-			base.click(skipBtn);
-			
-			return  new IpScreen();
-		}
-
-       public String getErrTxt() {
-    	   return base.getAttribute(errTxt,"name");
-       }
-
-
-		public String getName() {
-			
-			return base.getAttribute(selectPrinter,"name");
-		}
+	       public String getErrTxt() {
+	    	   return base.getAttribute(errTxt,"name");
+	       }
+	
+	
+			public String getName() {
+				
+				return base.getAttribute(selectPrinter,"name");
+			}
 
 
 }

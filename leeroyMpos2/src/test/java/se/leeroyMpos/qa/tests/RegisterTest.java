@@ -3,6 +3,7 @@ package se.leeroyMpos.qa.tests;
 import org.testng.annotations.Test;
 
 import se.leeroyMpos.qa.BaseTest;
+import se.qa.login.LoginScreen;
 import se.qa.register.AllDoneScreen;
 import se.qa.register.IpScreen;
 import se.qa.register.RegistrationCompletedScreen;
@@ -12,6 +13,7 @@ import se.qa.utils.TestUtils;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
@@ -21,7 +23,7 @@ import java.lang.reflect.Method;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+
 
 public class RegisterTest {
 	RegistrationUnitScreen registrationUnitScreen;
@@ -33,58 +35,65 @@ public class RegisterTest {
 	SelectPrinterScreen selectPrinterScreen;
 	AllDoneScreen allDoneScreen;
 	IpScreen ipScreen;
+	LoginScreen loginScreen;
+   
 	
-	//HashMap<String, String>strings;
 
 	
 	
-	      @Parameters({"applicationName","platformVersion","deviceName"})
-		  @BeforeClass
-		  public void startup(String applicationName,	String platformVersion,
-				  String deviceName)throws Exception{
-	      base = new BaseTest();
-          base.initializeDriver(applicationName, platformVersion, deviceName);
-          try {
-          String dataFileName = "data/loginUsers.json";
-          data = getClass().getClassLoader().getResourceAsStream(dataFileName);
-          JSONTokener tokener = new JSONTokener(data);
-          loginUsers = new JSONObject(tokener);
-          }catch(Exception e) {
-        	  e.printStackTrace();
-        	  
-          }finally {
-        	  if(data!=null) {
-        		  data.close();
-        	  }
-        	  
-          }
+		      @Parameters({"applicationName","platformVersion","deviceName"})
+			  @BeforeClass
+			  public void startup(String applicationName,	String platformVersion,
+					  String deviceName)throws Exception{
+		      base = new BaseTest();
+	          base.initializeDriver(applicationName, platformVersion, deviceName);
+	          try {
+	          String dataFileName = "data/loginUsers.json";
+	          data = getClass().getClassLoader().getResourceAsStream(dataFileName);
+	          JSONTokener tokener = new JSONTokener(data);
+	          loginUsers = new JSONObject(tokener);
+	          }catch(Exception e) {
+	        	  e.printStackTrace();
+	        	  
+	          }finally {
+	        	  if(data!=null) {
+	        		  data.close();
+	        	  }	
+	        	  
+                }
 		  }
 	      
 		
-		  @AfterClass
+		/*  @AfterClass
 		  public void afterClass() {
 	
 			  base.quitDriver();
 			 
-		  }
+		  }*/
 		  
 		  @BeforeMethod
 		  public void beforeMethod(Method m) {
 			  registrationUnitScreen = new RegistrationUnitScreen();
-			 
-			  System.out.println("" + "***** Starting Test" + m.getName() + "********" +  "\n");
-		  }
+			  selectPrinterScreen = new SelectPrinterScreen();
+			  allDoneScreen = new AllDoneScreen();
+			  ipScreen = new IpScreen();
+			  
+			  System.out.println("" + "***** Starting Test" + m.getName() + "********"  +   "\n");
+		       }
 		
 		  @AfterMethod
 		  public void afterMethod() {
 			  registrationUnitScreen = new RegistrationUnitScreen();
-			 
+			 //base.getDriver().resetApp();
 			  
-		  }
+		      }
 		  
-	  @Test(priority=1)
-		  public void invalidSecretKey(){
-				   
+		  /*	 
+		     Verify that Registering Device Given the user has  Installed MPOS App and has InvalidSecretKey 
+		 */
+		  @Test(priority=1)
+			  public void invalidSecretKey(){
+					   
 			  registrationUnitScreen.enterSecretKey(loginUsers.getJSONObject("invalidSecretKey").getString("key"));
 			  registrationUnitScreen.tapSendBtn();
 				 
@@ -92,42 +101,42 @@ public class RegisterTest {
 				  String actualErrTxt = registrationUnitScreen.getErrTxt();	  
 				  String expectedErrTxt = base.getStrings().get( "err_registration" );
 				  
-				  System.out.println(" Actual error txt -" + actualErrTxt + "" +  " expected error txt - " + expectedErrTxt);
-				  
-				  Assert.assertEquals(actualErrTxt, expectedErrTxt);
+		         System.out.println(" Actual error txt -" + actualErrTxt + "" +  " expected error txt - " + expectedErrTxt);
+		         
+		         Assert.assertEquals(actualErrTxt, expectedErrTxt);
 				  
 			  
 			  }
 			  
+		  /*	 
+		     Verify that Registering Device Given the user has  Installed MPOS App and has validSecretKey 
+		 */
 		  @Test(priority=2)
 		  public void validSecretKey() {
 			  
 			  registrationUnitScreen.tapokBtn();
 			  registrationUnitScreen.delete();
 			  registrationUnitScreen.enterSecretKey(loginUsers.getJSONObject("validSecretKey").getString("key"));
-			  //loginScreen.tapUnlokBtn();
-			  
+			  //loginScreen.tapUnlokBtn(); 
 			  registrationCompletedScreen = registrationUnitScreen.tapSendBtn();
 			  
-			  String actualMessage = registrationCompletedScreen.getName();	  
-			  String expectedMessage = base.getStrings().get("succes_message");
+				  String actualMessage = registrationCompletedScreen.getName();	  
+				  String expectedMessage = base.getStrings().get("succes_message");
+				  
+				  System.out.println("Actual Screen  - " + actualMessage +  " Expected Screen - " + expectedMessage);
+				  
+				  Assert.assertEquals(actualMessage, expectedMessage);
 			  
-			  System.out.println("Actual Screen  - " + actualMessage +  " Expected Screen - " + expectedMessage);
-			  
-			  Assert.assertEquals(actualMessage, expectedMessage);
-			  
-		  }
+		      }
 		  
 
-		 @Test(priority=3)
+	      @Test(priority=3)
 		  public void CompleteRegistration() throws InterruptedException   {
-			 
-
-            		  
-		   registrationCompletedScreen.tapContinueBtn();
-		   
-		   Thread.sleep(1000);
-		   registrationCompletedScreen.tapBtn();  
+			   		  
+			   registrationCompletedScreen.tapContinueBtn();
+			   
+			   Thread.sleep(1000);
+			   registrationCompletedScreen.tapBtn();  
        
 			  
 			  String actualScreen = registrationCompletedScreen.getScreenName();
@@ -138,24 +147,52 @@ public class RegisterTest {
 			  Assert.assertEquals(actualScreen, expectedScreen);
 			  
 		  }
-		 
-		 /*@Test(priority=4)
-		  public void SelectPrinter() throws InterruptedException {
-		  
-		 //selectPrinterScreen.tapBtn();
-		  
-		  
-		  ipScreen = selectPrinterScreen.tapSkipBtn();
-		  
-		  String actualScreen = ipScreen.getName();
-		  String expectedScreen = base.getStrings().get("ip_check");
-		  
-		  System.out.println("Actual Screen  - " + actualScreen +  " Expected Screen - " + expectedScreen);
-		  
-		  Assert.assertEquals(actualScreen, expectedScreen);
-		  
+		 		 
+			 @Test(priority=4)
+			  public void SelectPrinter() throws InterruptedException {
 			  
-		  }*/
-
-
+			 //selectPrinterScreen.tapBtn();
+			  
+			  
+			  ipScreen = selectPrinterScreen.tapSkipBtn();
+			  
+			  String actualScreen = ipScreen.getName();
+			  String expectedScreen = base.getStrings().get("ip_check");
+			  
+			  System.out.println("Actual Screen  - " + actualScreen +  "\n" + " Expected Screen - " + expectedScreen);
+			  
+			  Assert.assertEquals(actualScreen, expectedScreen);
+			  
+				  
+			  }
+			 @Test(priority=5)
+			  public void ipCheck() {
+				  
+				  
+				  allDoneScreen = ipScreen.tapContinueBtn();
+				  
+				  String actualScreen = allDoneScreen.getName();
+				  String expectedScreen = base.getStrings().get("allDone");
+				  
+				  System.out.println("Actual Screen  - " + actualScreen +  " Expected Screen - " + expectedScreen);
+				  
+				  Assert.assertEquals(actualScreen, expectedScreen);
+				  
+			  }
+			  @Test(priority=6)
+			  public void allDone() {
+				  
+				  
+		           loginScreen = allDoneScreen.tapLoginBtn();
+				  
+				  String actualScreen = loginScreen.getName();
+				  String expectedScreen = base.getStrings().get("login");
+				  
+				  System.out.println("Actual Screen  - " + actualScreen +  " Expected Screen - " + expectedScreen);
+				  
+				  Assert.assertEquals(actualScreen, expectedScreen);
+				  
+	
+	
+	}
 }

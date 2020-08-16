@@ -4,11 +4,16 @@
 	<!-- Error Text -->
 	   <string name="err_incorrect_pin">Incorrect Pin</string>
 	   <string name="device_name">SG 1</string>
+	   <!-- Registration Screen -->
 	   <string name="err_registration">We are unable to process your request, please try after sometime.</string>
 	   <string name="succes_message">Registration completed!</string>
 	   <string name="select_ printer">Select printer</string>
 	   <string name="item_name">Bananpaj</string>
 	   <string name="unlock">Log in</string>
 	   <string name="ip_check">IP address of your device</string>
+	   <string name="allDone">All done!</string>
+	   <string name="login">Log in</string>
+	   <string name="quanitity">2</string>
+	   <string name="price">21,00*</string>
 	   
 	</resources>

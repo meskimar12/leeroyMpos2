@@ -10,6 +10,8 @@ import se.leeroyMpos.qa.BaseTest;
 
 public class RegistrationUnitScreen {
 	
+	BaseTest base;
+	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Leeroy MPOS\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField\n" + 
 			"") private MobileElement secretKeyTxtFiled;
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Send\"]\n" + 
@@ -17,7 +19,7 @@ public class RegistrationUnitScreen {
 	@iOSXCUITFindBy(accessibility = "We are unable to process your request, please try after sometime.") private MobileElement errTxt;
 	
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Ok\"]") private MobileElement okBtn;
-	BaseTest base;
+	
 	
 	
 	public RegistrationUnitScreen() {

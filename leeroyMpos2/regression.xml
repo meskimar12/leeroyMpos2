@@ -5,11 +5,15 @@
 	     <listener class-name="se.qa.listeners.TestListener"/>
 	</listeners>  
           <parameter name= "applicationName" value= "iOS"/>
-          <parameter name= "platformVersion" value= "13.4"/>
+          <parameter name= "platformVersion" value= "13.5"/>
           <parameter name= "deviceName" value= "iPad pro"/>
           <test thread-count="5" name="Test">
        <classes>
-         <class name="se.leeroyMpos.qa.tests.LoginTest "/>  
+       <class name="se.leeroyMpos.qa.tests.RegisterTest"/>
+       <class name="se.leeroyMpos.qa.tests.LoginTest"/>
+       <class name="se.leeroyMpos.qa.tests.EditingProductsTest"/>
+       <class name="se.leeroyMpos.qa.tests.RefundTest"/>
+           
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

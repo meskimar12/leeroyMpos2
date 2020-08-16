@@ -15,7 +15,9 @@ public class RegistrationCompletedScreen {
 			@iOSXCUITFindBy(accessibility  = "Registration completed!") private MobileElement registrationCompleted;
 			@iOSXCUITFindBy(accessibility = "Ok") private MobileElement okBtn;
 			@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Select printer\"]") private MobileElement selectPrinter;
-
+		//	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Skip\"]\n" + 
+	//				"") private MobileElement skipBtn;
+	
 	
 	BaseTest base;
 	
@@ -27,15 +29,14 @@ public class RegistrationCompletedScreen {
 	
 	
 	
-	public String getName() {
-		return base.getAttribute(registrationCompleted,"name");
+		public String getName() {
+			return base.getAttribute(registrationCompleted,"name");
+			
+			
+		}
 		
-		
-	}
+
 	
-
-
-		
 		public SelectPrinterScreen tapContinueBtn() {
 			base.click(continueBtn);
 			
@@ -54,6 +55,8 @@ public class RegistrationCompletedScreen {
 			
 			
 		}
+		
+
 		
 
 }

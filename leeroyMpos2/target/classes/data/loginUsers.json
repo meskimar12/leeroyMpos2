@@ -1,6 +1,7 @@
 {
       "invalidPin":{
-		"pin": "2123"      },
+		"pin": "2123"  
+		    },
       
       "validPin":{
         "pin": "6821"
@@ -15,7 +16,19 @@
           
        "validSecretKey":{
        
-          "key" : "EA6HR6"
+          "key" : "AWXVQY"
+       
+      },
+      
+      "editQuantity":{
+       
+          "quantity" : "2"
+       
+      },
+      
+      "editPrice":{
+       
+          "price" : "21"
        
       }
   }

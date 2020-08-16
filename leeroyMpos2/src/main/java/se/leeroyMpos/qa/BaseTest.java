@@ -10,9 +10,12 @@ import se.qa.utils.TestUtils;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,6 +27,7 @@ public class BaseTest {
 	protected static  HashMap<String, String>strings = new HashMap<String,String>();
 	InputStream inputStream;
 	InputStream stringsis;
+	
 	TestUtils utils;
     
 	
@@ -31,7 +35,7 @@ public class BaseTest {
 		
 	}
 	public void setDriver(AppiumDriver<MobileElement> driver) {
-		this.driver = driver;
+		this.driver  = driver;
 	}
 	
 	public  AppiumDriver<MobileElement> getDriver() {
@@ -58,6 +62,8 @@ public class BaseTest {
 		  strings = utils.parseStringXML(stringsis);
 		  
 		DesiredCapabilities caps = new  DesiredCapabilities();
+		
+		caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,500);	
 		caps.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
 		caps.setCapability(MobileCapabilityType.APPLICATION_NAME, applicationName);
 		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,platformVersion);
@@ -65,6 +71,7 @@ public class BaseTest {
 		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME , props.getProperty("automationName"));
 		caps.setCapability(MobileCapabilityType.UDID, props.getProperty("UDID"));
 		caps.setCapability(IOSMobileCapabilityType.BUNDLE_ID,props.getProperty("bundleId"));
+	    //caps.setCapability(MobileCapabilityType.NO_RESET,true);
 		
 		
 		
@@ -77,7 +84,7 @@ public class BaseTest {
 		  URL url = new URL(props.getProperty("AppiumURL"));
 		
 		driver = new IOSDriver<MobileElement>(url,caps);
-	//	String sessionID = driver.getSessionDetails().toString();
+		//String sessionID = driver.getSessionDetails().toString();
 		
 	  
 		  
@@ -116,6 +123,15 @@ public class BaseTest {
 		 return  e.getAttribute(attribute);
 	     }
 	  
+	  public void iOSScroll() {
+		  RemoteWebElement parent = (RemoteWebElement)driver.findElement(By.className("XCUIElementTypeTable"));
+		    String parentID = parent.getId();
+		    HashMap<String, String> scrollObject = new HashMap<String, String>();
+		    scrollObject.put("element", parentID);
+		    scrollObject.put("direction", "down");
+		    driver.executeScript("mobile:scroll", scrollObject);
+		  
+	  }
 	  
 	public void quitDriver() {
 		  driver.quit();
